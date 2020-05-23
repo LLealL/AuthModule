@@ -39,7 +39,6 @@ public class PacienteController {
 		return pacienteService.removerPaciente(id);
 	}
 
-	@PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
 	@GetMapping("/listarPacientes/{id}")
 	public ResponseEntity<?> listarPacientes(@PathVariable("id") int idHospital) {
 		return pacienteService.listarPacientes(idHospital);
