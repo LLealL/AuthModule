@@ -40,9 +40,9 @@ public class PacienteController {
 	}
 
 	
-	@GetMapping("/listarPacientes")
-	public ResponseEntity<?> listarPacientes() {
-		return pacienteService.listarPacientes();
+	@GetMapping("/listarPacientes{id}")
+	public ResponseEntity<?> listarPacientes(@PathVariable("id") int idHospital) {
+		return pacienteService.listarPacientes(idHospital);
 	}
 	
 	@GetMapping("/consultarPaciente/{id}")

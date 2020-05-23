@@ -1,5 +1,8 @@
 package com.example.authmodule.paciente.services;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,10 +32,11 @@ public class PacienteService {
 
 	}
 	
-	public ResponseEntity<?> listarPacientes() {
-
-		return ResponseEntity.ok(pacienteRepository.findAll());
-	
+	public ResponseEntity<?> listarPacientes(int idHospital) {
+		
+		List<Paciente> pacientes = pacienteRepository.findAll();
+		
+		return ResponseEntity.ok(pacientes.stream().filter(x -> x.getId() == idHospital).collect(Collectors.toList()));
 	}
 	
 	public ResponseEntity<?> consultarPaciente(int id) {
