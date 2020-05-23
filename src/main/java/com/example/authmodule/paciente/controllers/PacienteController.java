@@ -35,7 +35,7 @@ public class PacienteController {
 	}
 	
 	@DeleteMapping("/removerPaciente/{id}")
-	public ResponseEntity<?> removerPaciente(@PathVariable("id") Integer id){
+	public ResponseEntity<?> removerPaciente(@PathVariable("id") int id){
 		return pacienteService.removerPaciente(id);
 	}
 
@@ -46,7 +46,7 @@ public class PacienteController {
 	}
 	
 	@GetMapping("/consultarPaciente/{id}")
-	public ResponseEntity<?> consultarPaciente(@PathVariable Integer id) {
+	public ResponseEntity<?> consultarPaciente(@PathVariable int id) {
 		return pacienteService.consultarPaciente(id);
 	}
 

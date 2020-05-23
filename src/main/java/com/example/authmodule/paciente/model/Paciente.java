@@ -7,7 +7,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.example.authmodule.models.User;
 
 @Entity
 @Table(name="tb_paciente")
@@ -18,6 +22,9 @@ public class Paciente implements Serializable{
 	private int id;
 	private String nome;
 	private String email;
+	@ManyToOne
+	@JoinColumn(name="user_id")
+	private User user;
 	
 	public Paciente() {
 		super();
@@ -40,6 +47,14 @@ public class Paciente implements Serializable{
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 	
 	

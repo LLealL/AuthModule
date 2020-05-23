@@ -5,7 +5,11 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+
+import com.example.authmodule.paciente.model.Paciente;
+
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -37,6 +41,11 @@ public class User {
                 inverseJoinColumns = @JoinColumn(name= "role_id"))
     private Set<Role> roles = new HashSet<>();
 
+    
+    @OneToMany(mappedBy = "user")
+    private List<Paciente> pacientes;
+    
+    
     public User(){
     }
 
@@ -78,11 +87,20 @@ public class User {
         this.password = password;
     }
 
-    public Set<Role> getRoles() {
+	public Set<Role> getRoles() {
         return roles;
     }
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
+
+    public List<Paciente> getPacientes() {
+		return pacientes;
+	}
+
+	public void setPacientes(List<Paciente> pacientes) {
+		this.pacientes = pacientes;
+	}
+
 }
