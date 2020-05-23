@@ -27,13 +27,11 @@ public class PacienteController {
 	@Autowired
 	PacienteService pacienteService;
 	
-	@PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
 	@PostMapping("/cadastrarPaciente")
 	public ResponseEntity<?> criarPaciente(@RequestBody Paciente paciente) {
 		return pacienteService.cadastrarPaciente(paciente);
 	}
 	
-	@PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
 	@DeleteMapping("/removerPaciente/{id}")
 	public ResponseEntity<?> removerPaciente(@PathVariable("id") int id){
 		return pacienteService.removerPaciente(id);
@@ -43,12 +41,10 @@ public class PacienteController {
 	public ResponseEntity<?> listarPacientes(@PathVariable("id") int idHospital) {
 		return pacienteService.listarPacientes(idHospital);
 	}
-	@PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
 	@GetMapping("/consultarPaciente/{id}")
 	public ResponseEntity<?> consultarPaciente(@PathVariable int id) {
 		return pacienteService.consultarPaciente(id);
 	}
-	@PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
 	@PutMapping("/editarPaciente")
 	public ResponseEntity<?> editarPaciente(@RequestBody Paciente paciente) {
 		return pacienteService.editarPaciente(paciente);
