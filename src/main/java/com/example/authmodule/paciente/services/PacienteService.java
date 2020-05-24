@@ -1,6 +1,7 @@
 package com.example.authmodule.paciente.services;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,14 +9,18 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import com.example.authmodule.models.User;
 import com.example.authmodule.paciente.model.Paciente;
 import com.example.authmodule.paciente.repository.PacienteRepository;
+import com.example.authmodule.repository.UserRepository;
 
 
 @Service
 public class PacienteService {
 	@Autowired
 	PacienteRepository pacienteRepository;
+	@Autowired
+	UserRepository userRepository;
 	
 	public ResponseEntity<?> cadastrarPaciente(Paciente paciente) {
 
@@ -25,6 +30,12 @@ public class PacienteService {
 		if (pacienteExist != null) {
 			return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body("Paciente já cadastrado!");
 		}
+		
+		Optional<User> u = userRepository.findById(paciente.getUser().getId());
+		
+		User user = u.get();
+		
+		paciente.setUser(user);
 
 		pacienteRepository.save(paciente);
 
