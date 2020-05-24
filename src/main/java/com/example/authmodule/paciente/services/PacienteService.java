@@ -50,13 +50,13 @@ public class PacienteService {
 		
 		List<Paciente> pacientesHospital = new ArrayList<Paciente>();
 		
-		for(Paciente p: pacientes) {
+		/*for(Paciente p: pacientes) {
 			if(p.getUser().getId() == id) {
 				pacientesHospital.add(p);
 			}
-		}
+		}*/
 		
-		return ResponseEntity.ok(pacientesHospital);
+		return ResponseEntity.ok(pacientes);
 	}
 	
 	public ResponseEntity<?> consultarPaciente(int id) {
