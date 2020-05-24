@@ -1,5 +1,6 @@
 package com.example.authmodule.paciente.services;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -43,11 +44,19 @@ public class PacienteService {
 
 	}
 	
-	public ResponseEntity<?> listarPacientes(int idHospital) {
+	public ResponseEntity<?> listarPacientes(int id) {
 		
 		List<Paciente> pacientes = pacienteRepository.findAll();
 		
-		return ResponseEntity.ok(pacientes.stream().filter(x -> x.getId() == idHospital).collect(Collectors.toList()));
+		List<Paciente> pacientesHospital = new ArrayList<Paciente>();
+		
+		for(Paciente p: pacientes) {
+			if(p.getUser().getId() == id) {
+				pacientesHospital.add(p);
+			}
+		}
+		
+		return ResponseEntity.ok(pacientesHospital);
 	}
 	
 	public ResponseEntity<?> consultarPaciente(int id) {

@@ -38,8 +38,8 @@ public class PacienteController {
 	}
 
 	@GetMapping("/listarPacientes/{id}")
-	public ResponseEntity<?> listarPacientes(@PathVariable("id") int idHospital) {
-		return pacienteService.listarPacientes(idHospital);
+	public ResponseEntity<?> listarPacientes(@PathVariable("id") int id) {
+		return pacienteService.listarPacientes(id);
 	}
 	@GetMapping("/consultarPaciente/{id}")
 	public ResponseEntity<?> consultarPaciente(@PathVariable int id) {
