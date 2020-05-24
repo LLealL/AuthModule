@@ -7,7 +7,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 import com.example.authmodule.paciente.model.Paciente;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import java.util.HashSet;
 import java.util.List;
@@ -42,7 +42,7 @@ public class User {
                 inverseJoinColumns = @JoinColumn(name= "role_id"))
     private Set<Role> roles = new HashSet<>();
 
-    @JsonIgnore
+    @JsonManagedReference
     @OneToMany(mappedBy = "user")
     private List<Paciente> pacientes;
     
