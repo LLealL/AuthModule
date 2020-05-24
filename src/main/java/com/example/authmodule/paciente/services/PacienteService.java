@@ -71,8 +71,12 @@ public class PacienteService {
 		if (pacienteExist == null) {
 			return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).build();
 		}
+		
+		pacienteExist.setEmail(paciente.getEmail());
+		pacienteExist.setNome(paciente.getNome());
+		
 
-		return ResponseEntity.ok(pacienteRepository.save(paciente));
+		return ResponseEntity.ok(pacienteRepository.save(pacienteExist));
 	}
 
 	public ResponseEntity<?> removerPaciente(int id) {
