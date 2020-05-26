@@ -19,7 +19,7 @@ import com.example.authmodule.paciente.model.Paciente;
 import com.example.authmodule.paciente.services.PacienteService;
 
 
-@CrossOrigin("*")
+@CrossOrigin(origins = "*",maxAge=3600)
 @RestController
 @RequestMapping("/paciente")
 public class PacienteController {
