@@ -32,11 +32,6 @@ public class AuthTokenFilter extends OncePerRequestFilter {
 
         try {
             String jwt = parseJwt(request);
-            response.setHeader("Access-Control-Origin","*");
-            response.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-            response.setHeader("Access-Control-Max-Age", "3600");
-            response.setHeader("Access-Control-Allow-Headers", "authorization, content-type, jwt-token");
-            response.addHeader("Access-Control-Expose-Headers", "jwt-token");
 
             if(jwt != null && jwtUtils.validateJwtToken(jwt)) {
                 String username = jwtUtils.getUserNameFromJwtToken(jwt);
@@ -53,11 +48,7 @@ public class AuthTokenFilter extends OncePerRequestFilter {
         } catch (Exception e){
             logger.error("Cannot set user authentication: {}", e);
         }
-        if ("OPTIONS".equals(request.getMethod())) {
-            response.setStatus(HttpServletResponse.SC_OK);
-        } else {
-            filterChain.doFilter(request, response);
-        }
+        filterChain.doFilter(request, response);
 
     }
 
