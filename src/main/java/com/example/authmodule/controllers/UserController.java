@@ -24,7 +24,7 @@ public class UserController {
     @PreAuthorize("hasRole('USER')")
     public ResponseEntity<?> updateUser(@Valid @RequestBody User user){
 
-        Optional<User> userOp = userRepository.findById(user.getId());
+        Optional<User> userOp = userRepository.findById(user.getId()).orElse(null);
         User userFound = userOp.get();
 
         if(userFound != null){
@@ -34,7 +34,7 @@ public class UserController {
         userFound.setEmail(user.getEmail());
         userFound.setPassword(user.getPassword());
 
-        return ResponseEntity.ok("");
+        return ResponseEntity.ok(userRepository.save(userFound));
     }
 
 }
