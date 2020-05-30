@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.persistence.EntityExistsException;
 import javax.persistence.EntityNotFoundException;
 import javax.validation.Valid;
+import java.io.Console;
 import java.util.Optional;
 
 @CrossOrigin(origins = "*",maxAge=3600)
@@ -22,7 +23,6 @@ public class UserController {
     UserRepository userRepository;
 
     @PutMapping("/user")
-    @PreAuthorize("hasRole('USER')")
     public ResponseEntity<?> updateUser(@Valid @RequestBody User user){
 
         Optional<User> userOp = userRepository.findById(user.getId());
