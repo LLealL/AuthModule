@@ -24,7 +24,7 @@ public class UserController {
     @PreAuthorize("hasRole('USER')")
     public ResponseEntity<?> updateUser(@Valid @RequestBody User user){
 
-        Optional<User> userOp = userRepository.findById(user.getId()).orElse(null);
+        Optional<User> userOp = userRepository.findById(user.getId());
         User userFound = userOp.get();
 
         if(userFound != null){
