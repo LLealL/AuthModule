@@ -9,6 +9,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.EntityExistsException;
+import javax.persistence.EntityNotFoundException;
 import javax.validation.Valid;
 import java.util.Optional;
 
@@ -27,8 +28,8 @@ public class UserController {
         Optional<User> userOp = userRepository.findById(user.getId());
         User userFound = userOp.get();
 
-        if(userFound != null){
-            throw new EntityExistsException();
+        if(userFound == null){
+            throw new EntityNotFoundException();
         }
 
         userFound.setEmail(user.getEmail());
