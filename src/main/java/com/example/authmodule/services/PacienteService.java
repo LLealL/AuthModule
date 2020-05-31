@@ -1,4 +1,4 @@
-package com.example.authmodule.paciente.services;
+package com.example.authmodule.services;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,9 +10,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import com.example.authmodule.models.Paciente;
 import com.example.authmodule.models.User;
-import com.example.authmodule.paciente.model.Paciente;
-import com.example.authmodule.paciente.repository.PacienteRepository;
+import com.example.authmodule.repository.PacienteRepository;
 import com.example.authmodule.repository.UserRepository;
 
 

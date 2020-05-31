@@ -1,4 +1,4 @@
-package com.example.authmodule.paciente.model;
+package com.example.authmodule.models;
 
 
 import java.io.Serializable;
@@ -11,7 +11,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.example.authmodule.models.User;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity

@@ -1,4 +1,4 @@
-package com.example.authmodule.paciente.controllers;
+package com.example.authmodule.controllers;
 
 
 
@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.authmodule.paciente.model.Paciente;
-import com.example.authmodule.paciente.services.PacienteService;
+import com.example.authmodule.models.Paciente;
+import com.example.authmodule.services.PacienteService;
 
 
 @CrossOrigin(origins = "*",maxAge=3600)

@@ -6,7 +6,6 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
-import com.example.authmodule.paciente.model.Paciente;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import java.util.HashSet;

@@ -1,16 +1,16 @@
-package com.example.authmodule.controllers;
+package com.example.authmodule.security.controllers;
 
 
 import com.example.authmodule.models.ERole;
 import com.example.authmodule.models.Role;
 import com.example.authmodule.models.User;
-import com.example.authmodule.payload.request.LoginRequest;
-import com.example.authmodule.payload.request.SignupRequest;
-import com.example.authmodule.payload.response.JwtResponse;
-import com.example.authmodule.payload.response.MessageResponse;
 import com.example.authmodule.repository.RoleRepository;
 import com.example.authmodule.repository.UserRepository;
 import com.example.authmodule.security.jwt.JwtUtils;
+import com.example.authmodule.security.payload.request.LoginRequest;
+import com.example.authmodule.security.payload.request.SignupRequest;
+import com.example.authmodule.security.payload.response.JwtResponse;
+import com.example.authmodule.security.payload.response.MessageResponse;
 import com.example.authmodule.security.services.UserDetailsImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

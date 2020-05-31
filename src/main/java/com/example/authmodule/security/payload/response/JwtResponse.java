@@ -1,4 +1,4 @@
-package com.example.authmodule.payload.response;
+package com.example.authmodule.security.payload.response;
 
 import io.jsonwebtoken.Jwt;
 

@@ -1,8 +1,8 @@
-package com.example.authmodule.paciente.repository;
+package com.example.authmodule.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.example.authmodule.paciente.model.Paciente;
+import com.example.authmodule.models.Paciente;
 
 
 public interface PacienteRepository extends JpaRepository<Paciente, Integer>{

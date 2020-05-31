@@ -1,4 +1,4 @@
-package com.example.authmodule.payload.request;
+package com.example.authmodule.security.payload.request;
 
 import javax.validation.constraints.NotBlank;
 

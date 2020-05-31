@@ -1,4 +1,4 @@
-package com.example.authmodule.controllers;
+package com.example.authmodule.security.controllers;
 
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
