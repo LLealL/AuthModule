@@ -37,9 +37,9 @@ public class PacienteController {
 		return pacienteService.removerPaciente(id);
 	}
 
-	@GetMapping("/listarPacientes/{id}")
-	public ResponseEntity<?> listarPacientes(@PathVariable("id") int id) {
-		return pacienteService.listarPacientes(id);
+	@GetMapping("/listarPacientes")
+	public ResponseEntity<?> listarPacientes() {
+		return pacienteService.listarPacientes();
 	}
 	@GetMapping("/consultarPaciente/{id}")
 	public ResponseEntity<?> consultarPaciente(@PathVariable int id) {

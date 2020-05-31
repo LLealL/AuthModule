@@ -22,10 +22,6 @@ public class Paciente implements Serializable{
 	private int id;
 	private String nome;
 	private String email;
-	@JsonBackReference
-	@ManyToOne
-	@JoinColumn(name="user_id")
-	private User user;
 	
 	public Paciente() {
 		super();
@@ -48,15 +44,6 @@ public class Paciente implements Serializable{
 	}
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
-	
+	}	
 	
 }

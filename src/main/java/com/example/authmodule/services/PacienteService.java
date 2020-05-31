@@ -32,30 +32,18 @@ public class PacienteService {
 			return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body("Paciente já cadastrado!");
 		}
 		
-		Optional<User> u = userRepository.findById(paciente.getUser().getId());
 		
-		User user = u.get();
-		
-		paciente.setUser(user);
-
 		pacienteRepository.save(paciente);
 
 		return ResponseEntity.ok().build();
 
 	}
 	
-	public ResponseEntity<?> listarPacientes(int id) {
+	public ResponseEntity<?> listarPacientes() {
 		
 		List<Paciente> pacientes = pacienteRepository.findAll();
 		
-		List<Paciente> pacientesHospital = new ArrayList<Paciente>();
-		
-		for(Paciente p: pacientes) {
-			if(p.getUser().getId() == id) {
-				pacientesHospital.add(p);
-			}
-		}
-		return ResponseEntity.ok(pacientesHospital);
+		return ResponseEntity.ok(pacientes);
 	}
 	
 	public ResponseEntity<?> consultarPaciente(int id) {
