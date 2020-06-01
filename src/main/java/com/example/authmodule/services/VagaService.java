@@ -59,6 +59,8 @@ public class VagaService {
 			vaga.getUser().setVagas(null);
 		}
 		
+		//tESTE
+		
 		return ResponseEntity.ok(vagasHospital);
 	}
 	
