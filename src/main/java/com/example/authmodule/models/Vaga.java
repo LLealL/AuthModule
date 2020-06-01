@@ -19,7 +19,7 @@ public class Vaga {
 	private int numeroQuarto;
 	private String situacao;
 	private String idPaciente;
-	@JsonBackReference
+	//@JsonBackReference
 	@ManyToOne
 	@JoinColumn(name="user_id")
 	private User user;

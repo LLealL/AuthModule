@@ -54,6 +54,11 @@ public class VagaService {
 				vagasHospital.add(vaga);
 			}
 		}
+		
+		for(Vaga vaga: vagasHospital) {
+			vaga.getUser().setVagas(null);
+		}
+		
 		return ResponseEntity.ok(vagasHospital);
 	}
 	
