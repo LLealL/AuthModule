@@ -63,8 +63,13 @@ public class VagaService {
 	}
 	
 	public ResponseEntity<?> consultarVaga(int id) {
-
-		return ResponseEntity.ok(vagaRepository.findById(id));
+		Optional<Vaga> v = vagaRepository.findById(id);
+		
+		Vaga vaga = v.get();
+		
+		vaga.getUser().setVagas(null);
+		
+		return ResponseEntity.ok(vaga);
 
 	}
 
