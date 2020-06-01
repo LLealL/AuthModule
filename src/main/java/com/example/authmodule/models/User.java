@@ -40,6 +40,11 @@ public class User {
                 joinColumns = @JoinColumn(name="user_id"),
                 inverseJoinColumns = @JoinColumn(name= "role_id"))
     private Set<Role> roles = new HashSet<>();
+    
+
+    @JsonManagedReference
+    @OneToMany(mappedBy = "user")
+    private List<Vaga> vagas;
 
     
     
@@ -91,5 +96,13 @@ public class User {
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
+
+	public List<Vaga> getVagas() {
+		return vagas;
+	}
+
+	public void setVagas(List<Vaga> vagas) {
+		this.vagas = vagas;
+	}
 
 }
