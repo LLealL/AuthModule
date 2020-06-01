@@ -27,25 +27,25 @@ public class PacienteController {
 	@Autowired
 	PacienteService pacienteService;
 	
-	@PostMapping("/cadastrarPaciente")
+	@PostMapping("/cadastrar")
 	public ResponseEntity<?> criarPaciente(@RequestBody Paciente paciente) {
 		return pacienteService.cadastrarPaciente(paciente);
 	}
 	
-	@DeleteMapping("/removerPaciente/{id}")
+	@DeleteMapping("/remover/{id}")
 	public ResponseEntity<?> removerPaciente(@PathVariable("id") int id){
 		return pacienteService.removerPaciente(id);
 	}
 
-	@GetMapping("/listarPacientes")
+	@GetMapping("/listar")
 	public ResponseEntity<?> listarPacientes() {
 		return pacienteService.listarPacientes();
 	}
-	@GetMapping("/consultarPaciente/{id}")
-	public ResponseEntity<?> consultarPaciente(@PathVariable int id) {
+	@GetMapping("/consultar/{id}")
+	public ResponseEntity<?> consultarPaciente(@PathVariable("id") int id) {
 		return pacienteService.consultarPaciente(id);
 	}
-	@PutMapping("/editarPaciente")
+	@PutMapping("/editar")
 	public ResponseEntity<?> editarPaciente(@RequestBody Paciente paciente) {
 		return pacienteService.editarPaciente(paciente);
 
