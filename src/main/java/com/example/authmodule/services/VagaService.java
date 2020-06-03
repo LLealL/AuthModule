@@ -47,7 +47,7 @@ public class VagaService {
 
 	}
 	
-	public ResponseEntity<?> listarVagas(Long idUser) {
+	public ResponseEntity<?> listarVagas(int idUser) {
 		
 		List<Vaga> vagas = vagaRepository.findAll();
 		

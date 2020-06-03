@@ -28,16 +28,16 @@ public class VagaController {
 	}
 	
 	@DeleteMapping("/remover/{id}")
-	public ResponseEntity<?> removerVaga(@PathVariable("id") Long id){
+	public ResponseEntity<?> removerVaga(@PathVariable("id") int id){
 		return vagaService.removerVaga(id);
 	}
 
 	@GetMapping("/listar/{id}")
-	public ResponseEntity<?> listarVaga(@PathVariable("id") Long id) {
+	public ResponseEntity<?> listarVaga(@PathVariable("id") int id) {
 		return vagaService.listarVagas(id);
 	}
 	@GetMapping("/consultar/{id}")
-	public ResponseEntity<?> consultarVaga(@PathVariable("id") Long id) {
+	public ResponseEntity<?> consultarVaga(@PathVariable("id") int id) {
 		return vagaService.consultarVaga(id);
 	}
 	@PutMapping("/editar")
