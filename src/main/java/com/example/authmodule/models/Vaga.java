@@ -18,6 +18,7 @@ public class Vaga {
 	@OneToOne
 	private Paciente paciente;
 
+	//@JsonBackReference
 	@ManyToOne
 	@JoinColumn(name="user_id")
 	private User user;
@@ -26,12 +27,15 @@ public class Vaga {
 	public Vaga() {
 		super();
 	}
+
 	public Long getId() {
 		return id;
 	}
+
 	public void setId(Long id) {
 		this.id = id;
 	}
+
 	public int getNumeroQuarto() {
 		return numeroQuarto;
 	}
