@@ -68,12 +68,8 @@ public class VagaService {
 		return ResponseEntity.ok(vagasHospital);
 	}
 	
-<<<<<<< HEAD
-	public ResponseEntity<?> consultarVaga(Long id) {
 
-		return ResponseEntity.ok(vagaRepository.findById(id));
-=======
-	public ResponseEntity<?> consultarVaga(int id) {
+	public ResponseEntity<?> consultarVaga(Long id) {
 		Optional<Vaga> v = vagaRepository.findById(id);
 		
 		Vaga vaga = v.get();
@@ -81,7 +77,6 @@ public class VagaService {
 		vaga.getUser().setVagas(null);
 		
 		return ResponseEntity.ok(vaga);
->>>>>>> 3830ce7638b6be6a6b40c0b483812003b8160ba9
 
 	}
 
