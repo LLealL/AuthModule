@@ -69,7 +69,7 @@ public class VagaService {
 	}
 	
 
-	public ResponseEntity<?> consultarVaga(Long id) {
+	public ResponseEntity<?> consultarVaga(int id) {
 		Optional<Vaga> v = vagaRepository.findById(id);
 		
 		Vaga vaga = v.get();
@@ -101,7 +101,7 @@ public class VagaService {
 		return ResponseEntity.ok(vagaRepository.save(vagaExist));
 	}
 
-	public ResponseEntity<?> removerVaga(Long id) {
+	public ResponseEntity<?> removerVaga(int id) {
 		Vaga vagaExist = vagaRepository.findById(id).orElse(null);
 
 		if (vagaExist == null) {

@@ -7,9 +7,9 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 @Entity
 @Table(name="tb_vaga")
 public class Vaga {
-	@Id 
-	@GeneratedValue(strategy = GenerationType.IDENTITY)	
-	private Long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
 
 	private int numeroQuarto;
 
@@ -28,11 +28,11 @@ public class Vaga {
 		super();
 	}
 
-	public Long getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
