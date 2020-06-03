@@ -14,11 +14,16 @@ public class Vaga {
 	private int numeroQuarto;
 
 	private String situacao;
+<<<<<<< HEAD
 
 	@OneToOne
 	private Paciente paciente;
 
 	@JsonBackReference
+=======
+	private String idPaciente;
+	//@JsonBackReference
+>>>>>>> 3830ce7638b6be6a6b40c0b483812003b8160ba9
 	@ManyToOne
 	@JoinColumn(name="user_id")
 	private User user;

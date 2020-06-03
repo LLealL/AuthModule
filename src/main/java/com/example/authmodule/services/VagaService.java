@@ -58,12 +58,30 @@ public class VagaService {
 				vagasHospital.add(vaga);
 			}
 		}
+		
+		for(Vaga vaga: vagasHospital) {
+			vaga.getUser().setVagas(null);
+		}
+		
+		//tESTE
+		
 		return ResponseEntity.ok(vagasHospital);
 	}
 	
+<<<<<<< HEAD
 	public ResponseEntity<?> consultarVaga(Long id) {
 
 		return ResponseEntity.ok(vagaRepository.findById(id));
+=======
+	public ResponseEntity<?> consultarVaga(int id) {
+		Optional<Vaga> v = vagaRepository.findById(id);
+		
+		Vaga vaga = v.get();
+		
+		vaga.getUser().setVagas(null);
+		
+		return ResponseEntity.ok(vaga);
+>>>>>>> 3830ce7638b6be6a6b40c0b483812003b8160ba9
 
 	}
 

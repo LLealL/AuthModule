@@ -42,7 +42,7 @@ public class User {
     private Set<Role> roles = new HashSet<>();
     
 
-    @JsonManagedReference
+   // @JsonManagedReference
     @OneToMany(mappedBy = "user")
     private List<Vaga> vagas;
 
