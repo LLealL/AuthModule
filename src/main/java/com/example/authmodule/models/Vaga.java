@@ -18,7 +18,6 @@ public class Vaga {
 	@OneToOne
 	private Paciente paciente;
 
-	@JsonBackReference
 	@ManyToOne
 	@JoinColumn(name="user_id")
 	private User user;
