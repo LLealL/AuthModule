@@ -22,6 +22,8 @@ public class Paciente implements Serializable{
 	private String nome;
 
 	private String email;
+	
+	private String telefone;
 
 	@NotBlank
 	@Column(unique=true)
@@ -58,5 +60,12 @@ public class Paciente implements Serializable{
 
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
+	}
+	
+	public String getTelefone() {
+		return telefone;
+	}
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
 	}
 }
