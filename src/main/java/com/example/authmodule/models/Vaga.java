@@ -1,12 +1,6 @@
 package com.example.authmodule.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
@@ -15,21 +9,28 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 public class Vaga {
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)	
-	private int id;
+	private Long id;
+
 	private int numeroQuarto;
+
 	private String situacao;
-	private String idPaciente;
+
+	@OneToOne
+	private Paciente paciente;
+
 	@JsonBackReference
 	@ManyToOne
 	@JoinColumn(name="user_id")
 	private User user;
+
+
 	public Vaga() {
 		super();
 	}
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public int getNumeroQuarto() {
@@ -44,12 +45,7 @@ public class Vaga {
 	public void setSituacao(String situacao) {
 		this.situacao = situacao;
 	}
-	public String getIdPaciente() {
-		return idPaciente;
-	}
-	public void setIdPaciente(String idPaciente) {
-		this.idPaciente = idPaciente;
-	}
+
 	public User getUser() {
 		return user;
 	}
@@ -57,7 +53,11 @@ public class Vaga {
 		this.user = user;
 	}
 
-	
-	
+	public Paciente getPaciente() {
+		return paciente;
+	}
 
+	public void setPaciente(Paciente paciente) {
+		this.paciente = paciente;
+	}
 }

@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import com.example.authmodule.models.Paciente;
+import com.example.authmodule.repository.PacienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,6 +23,8 @@ public class VagaService {
 	VagaRepository vagaRepository;
 	@Autowired
 	UserRepository userRepository;
+	@Autowired
+	PacienteRepository pacienteRepository;
 	
 	public ResponseEntity<?> cadastrarVaga(Vaga vaga) {
 
@@ -43,7 +47,7 @@ public class VagaService {
 
 	}
 	
-	public ResponseEntity<?> listarVagas(int idUser) {
+	public ResponseEntity<?> listarVagas(Long idUser) {
 		
 		List<Vaga> vagas = vagaRepository.findAll();
 		
@@ -57,7 +61,7 @@ public class VagaService {
 		return ResponseEntity.ok(vagasHospital);
 	}
 	
-	public ResponseEntity<?> consultarVaga(int id) {
+	public ResponseEntity<?> consultarVaga(Long id) {
 
 		return ResponseEntity.ok(vagaRepository.findById(id));
 
@@ -70,7 +74,13 @@ public class VagaService {
 		if (vagaExist == null) {
 			return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).build();
 		}
-		
+
+		if(vaga.getPaciente()!=null){
+			Paciente pacienteFound = pacienteRepository.findPacienteByCpf(vaga.getPaciente().getCpf());
+			vagaExist.setPaciente(pacienteFound);
+		}else{
+			vagaExist.setPaciente(null);
+		}
 		vagaExist.setNumeroQuarto(vaga.getNumeroQuarto());
 		vagaExist.setSituacao(vaga.getSituacao());
 		
@@ -78,7 +88,7 @@ public class VagaService {
 		return ResponseEntity.ok(vagaRepository.save(vagaExist));
 	}
 
-	public ResponseEntity<?> removerVaga(int id) {
+	public ResponseEntity<?> removerVaga(Long id) {
 		Vaga vagaExist = vagaRepository.findById(id).orElse(null);
 
 		if (vagaExist == null) {

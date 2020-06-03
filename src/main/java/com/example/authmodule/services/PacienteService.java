@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import com.sun.mail.iap.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -46,7 +47,7 @@ public class PacienteService {
 		return ResponseEntity.ok(pacientes);
 	}
 	
-	public ResponseEntity<?> consultarPaciente(int id) {
+	public ResponseEntity<?> consultarPaciente(Long id) {
 
 		return ResponseEntity.ok(pacienteRepository.findById(id));
 
@@ -67,7 +68,7 @@ public class PacienteService {
 		return ResponseEntity.ok(pacienteRepository.save(pacienteExist));
 	}
 
-	public ResponseEntity<?> removerPaciente(int id) {
+	public ResponseEntity<?> removerPaciente(Long id) {
 		Paciente pacienteExist = pacienteRepository.findById(id).orElse(null);
 
 		if (pacienteExist == null) {

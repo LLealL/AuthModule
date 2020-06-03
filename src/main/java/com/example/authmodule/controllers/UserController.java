@@ -36,7 +36,8 @@ public class UserController {
         userFound.setEmail(user.getEmail());
         userFound.setPassword(user.getPassword());
 
-        return ResponseEntity.ok(userRepository.save(userFound));
+        userRepository.save(userFound);
+        return ResponseEntity.ok("");
     }
 
 }
