@@ -34,7 +34,8 @@ public class UserController {
         }
 
         userFound.setEmail(user.getEmail());
-        userFound.setPassword(user.getPassword());
+        userFound.setNomeHospital(user.getNomeHospital());
+        userFound.setTelefone(user.getTelefone());
 
         userRepository.save(userFound);
         return ResponseEntity.ok("");

@@ -35,6 +35,11 @@ public class User {
     @Size(max =120)
     private String password;
 
+    private String nomeHospital;
+
+    private String telefone;
+
+
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable( name = "user_roles",
                 joinColumns = @JoinColumn(name="user_id"),
@@ -105,4 +110,19 @@ public class User {
 		this.vagas = vagas;
 	}
 
+    public String getNomeHospital() {
+        return nomeHospital;
+    }
+
+    public void setNomeHospital(String nomeHospital) {
+        this.nomeHospital = nomeHospital;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
 }
