@@ -33,7 +33,7 @@ public class PacienteController {
 	}
 	
 	@DeleteMapping("/remover/{id}")
-	public ResponseEntity<?> removerPaciente(@PathVariable("id") Long id){
+	public ResponseEntity<?> removerPaciente(@PathVariable("id") int id){
 		return pacienteService.removerPaciente(id);
 	}
 
@@ -42,7 +42,7 @@ public class PacienteController {
 		return pacienteService.listarPacientes();
 	}
 	@GetMapping("/consultar/{id}")
-	public ResponseEntity<?> consultarPaciente(@PathVariable("id") Long id) {
+	public ResponseEntity<?> consultarPaciente(@PathVariable("id") int id) {
 		return pacienteService.consultarPaciente(id);
 	}
 	@PutMapping("/editar")

@@ -88,7 +88,7 @@ public class VagaService {
 			return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).build();
 		}
 
-		if(vaga.getPaciente()!=null){
+		if(vaga.getPaciente().getId()==null){
 			Paciente pacienteFound = pacienteRepository.findPacienteByCpf(vaga.getPaciente().getCpf());
 			vagaExist.setPaciente(pacienteFound);
 		}else{

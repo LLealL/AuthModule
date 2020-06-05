@@ -43,7 +43,8 @@ public class VagaController {
 	@PutMapping("/editar")
 	public ResponseEntity<?> editarVaga(@RequestBody Vaga vaga) {
 		return vagaService.editarVaga(vaga);
-
 	}
-	
+
+
+
 }
