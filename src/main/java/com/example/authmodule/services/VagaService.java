@@ -96,6 +96,7 @@ public class VagaService {
 		}
 		vagaExist.setNumeroQuarto(vaga.getNumeroQuarto());
 		vagaExist.setSituacao(vaga.getSituacao());
+		vagaExist.setDescricao(vaga.getDescricao());
 		vagaExist.getUser().setVagas(null);
 
 		return ResponseEntity.ok(vagaRepository.save(vagaExist));
