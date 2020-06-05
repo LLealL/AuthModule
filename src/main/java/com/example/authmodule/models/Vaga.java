@@ -64,7 +64,7 @@ public class Vaga {
 	public void setPaciente(Paciente paciente) {
 		this.paciente = paciente;
 	}
-	
+	//test
 	public String getDescricao() {
 		return descricao;
 	}
