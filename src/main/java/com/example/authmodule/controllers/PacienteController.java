@@ -48,7 +48,11 @@ public class PacienteController {
 	@PutMapping("/editar")
 	public ResponseEntity<?> editarPaciente(@RequestBody Paciente paciente) {
 		return pacienteService.editarPaciente(paciente);
+	}
 
+	@GetMapping("/Pesquisar/{cpf}")
+	public ResponseEntity<?> pesquisarPaciente(@PathVariable("cpf") String cpf){
+		return pacienteService.findByCpf(cpf);
 	}
 	
 

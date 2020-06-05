@@ -78,6 +78,16 @@ public class PacienteService {
 		return ResponseEntity.ok(pacienteExist);
 	}
 
+	public ResponseEntity<?> findByCpf(String cpf){
+		Paciente pacienteExist = pacienteRepository.findPacienteByCpf(cpf);
+
+		if(pacienteExist == null){
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+		}
+
+		return ResponseEntity.ok(pacienteExist);
+	}
+
 
 }
 
