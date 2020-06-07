@@ -80,7 +80,7 @@ public class PacienteService {
 		try {
 			pacienteRepository.delete(pacienteExist);
 		}catch (Exception e){
-			ResponseEntity.status(HttpStatus.METHOD_NOT_ALLOWED).build();
+			return ResponseEntity.status(HttpStatus.METHOD_NOT_ALLOWED).build();
 		}
 		return ResponseEntity.ok(pacienteExist);
 	}
