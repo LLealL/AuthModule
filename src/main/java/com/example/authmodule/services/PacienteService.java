@@ -28,7 +28,9 @@ public class PacienteService {
 	public ResponseEntity<?> cadastrarPaciente(Paciente paciente) {
 
 		
-		Paciente pacienteExist = pacienteRepository.findById(paciente.getId()).orElse(null);
+		//Paciente pacienteExist = pacienteRepository.findById(paciente.getId()).orElse(null);
+
+		Paciente pacienteExist = pacienteRepository.findPacienteByCpf(paciente.getCpf());
 
 		if (pacienteExist != null) {
 			return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body(new MessageResponse("Error: Paciente já cadastrado!"));
