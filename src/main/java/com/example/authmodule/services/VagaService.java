@@ -6,6 +6,7 @@ import java.util.Optional;
 
 import com.example.authmodule.models.Paciente;
 import com.example.authmodule.repository.PacienteRepository;
+import com.example.authmodule.security.payload.response.MessageResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -32,7 +33,7 @@ public class VagaService {
 		Vaga vagaExist = vagaRepository.findById(vaga.getId()).orElse(null);
 
 		if (vagaExist != null) {
-			return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body("Paciente já cadastrado!");
+			return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body(new MessageResponse("Error: Quarto já cadastrado!"));
 		}
 		
 		Optional<User> u = userRepository.findById(vaga.getUser().getId());
@@ -85,7 +86,7 @@ public class VagaService {
 		Vaga vagaExist = vagaRepository.findById(vaga.getId()).orElse(null);
 
 		if (vagaExist == null) {
-			return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).build();
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 		}
 
 		if(vaga.getPaciente()!=null){
@@ -105,7 +106,7 @@ public class VagaService {
 		Vaga vagaExist = vagaRepository.findById(id).orElse(null);
 
 		if (vagaExist == null) {
-			return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).build();
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 		}
 		vagaRepository.delete(vagaExist);
 		return ResponseEntity.ok(vagaExist);

@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import com.example.authmodule.security.payload.response.MessageResponse;
 import com.sun.mail.iap.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -30,7 +31,7 @@ public class PacienteService {
 		Paciente pacienteExist = pacienteRepository.findById(paciente.getId()).orElse(null);
 
 		if (pacienteExist != null) {
-			return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body("Paciente já cadastrado!");
+			return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body(new MessageResponse("Error: Paciente já cadastrado!"));
 		}
 		
 		
@@ -58,7 +59,7 @@ public class PacienteService {
 		Paciente pacienteExist = pacienteRepository.findById(paciente.getId()).orElse(null);
 
 		if (pacienteExist == null) {
-			return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).build();
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 		}
 		
 		pacienteExist.setEmail(paciente.getEmail());
@@ -72,7 +73,7 @@ public class PacienteService {
 		Paciente pacienteExist = pacienteRepository.findById(id).orElse(null);
 
 		if (pacienteExist == null) {
-			return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).build();
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 		}
 		pacienteRepository.delete(pacienteExist);
 		return ResponseEntity.ok(pacienteExist);
