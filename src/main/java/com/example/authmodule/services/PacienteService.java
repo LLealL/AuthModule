@@ -33,7 +33,7 @@ public class PacienteService {
 		Paciente pacienteExist = pacienteRepository.findPacienteByCpf(paciente.getCpf());
 
 		if (pacienteExist != null) {
-			return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body(new MessageResponse("Error: Paciente já cadastrado!"));
+			return ResponseEntity.badRequest().body(new MessageResponse("Error: Paciente já cadastrado!"));
 		}
 		
 		

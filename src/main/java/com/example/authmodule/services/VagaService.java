@@ -33,7 +33,7 @@ public class VagaService {
 		Vaga vagaExist = vagaRepository.findById(vaga.getId()).orElse(null);
 
 		if (vagaExist != null) {
-			return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body(new MessageResponse("Error: Quarto já cadastrado!"));
+			return ResponseEntity.badRequest().body(new MessageResponse("Error: Quarto já cadastrado!"));
 		}
 		
 		Optional<User> u = userRepository.findById(vaga.getUser().getId());
@@ -95,16 +95,15 @@ public class VagaService {
 			Paciente pacienteFound = pacienteRepository.findPacienteByCpf(vaga.getPaciente().getCpf());
 			
 			if (pacienteFound == null) {
-				return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body(new MessageResponse("Error: Paciente não encontrado!"));
+				return ResponseEntity.badRequest().body(new MessageResponse("Error: Paciente não encontrado!"));
 			}
 			List<Vaga> vagas = vagaRepository.findAll();
 			
 			for(Vaga v: vagas) {
 				if(v.getPaciente().getCpf().equals(pacienteFound.getCpf())) {
-					return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body(new MessageResponse("Error: Paciente já alocado a uma vaga!"));
+					return ResponseEntity.badRequest().body(new MessageResponse("Error: Paciente já alocado a uma vaga!"));
 				}
 			}
-			
 			vagaExist.setSituacao("ocupado");
 			vagaExist.setPaciente(pacienteFound);
 		}else{
