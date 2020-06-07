@@ -77,7 +77,11 @@ public class PacienteService {
 		if (pacienteExist == null) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 		}
-		pacienteRepository.delete(pacienteExist);
+		try {
+			pacienteRepository.delete(pacienteExist);
+		}catch (Exception e){
+			ResponseEntity.status(HttpStatus.METHOD_NOT_ALLOWED).build();
+		}
 		return ResponseEntity.ok(pacienteExist);
 	}
 
