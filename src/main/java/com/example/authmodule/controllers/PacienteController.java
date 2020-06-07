@@ -50,7 +50,7 @@ public class PacienteController {
 		return pacienteService.editarPaciente(paciente);
 	}
 
-	@GetMapping("/Pesquisar/{cpf}")
+	@GetMapping("/pesquisar/{cpf}")
 	public ResponseEntity<?> pesquisarPaciente(@PathVariable("cpf") String cpf){
 		return pacienteService.findByCpf(cpf);
 	}

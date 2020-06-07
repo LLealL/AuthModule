@@ -22,7 +22,8 @@ public class Vaga {
 	@ManyToOne
 	@JoinColumn(name="user_id")
 	private User user;
-
+	
+	private String descricao;
 
 	public Vaga() {
 		super();
@@ -62,5 +63,12 @@ public class Vaga {
 
 	public void setPaciente(Paciente paciente) {
 		this.paciente = paciente;
+	}
+	//test
+	public String getDescricao() {
+		return descricao;
+	}
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
 }

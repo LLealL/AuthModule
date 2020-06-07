@@ -41,6 +41,8 @@ public class VagaService {
 		User user = u.get();
 		
 		vaga.setUser(user);
+		
+		vaga.setSituacao("livre");
 
 		vagaRepository.save(vaga);
 
@@ -91,12 +93,18 @@ public class VagaService {
 
 		if(vaga.getPaciente()!=null){
 			Paciente pacienteFound = pacienteRepository.findPacienteByCpf(vaga.getPaciente().getCpf());
+			
+			if (pacienteFound == null) {
+				return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).build();
+			}
+			vagaExist.setSituacao("ocupado");
 			vagaExist.setPaciente(pacienteFound);
 		}else{
+			vagaExist.setSituacao("livre");
 			vagaExist.setPaciente(null);
 		}
 		vagaExist.setNumeroQuarto(vaga.getNumeroQuarto());
-		vagaExist.setSituacao(vaga.getSituacao());
+		vagaExist.setDescricao(vaga.getDescricao());
 		vagaExist.getUser().setVagas(null);
 
 		return ResponseEntity.ok(vagaRepository.save(vagaExist));
