@@ -99,11 +99,11 @@ public class VagaService {
 			}
 			List<Vaga> vagas = vagaRepository.findAll();
 			
-			for(Vaga v: vagas) {
-				if(v.getPaciente().getCpf().equals(pacienteFound.getCpf())) {
-					return ResponseEntity.badRequest().body(new MessageResponse("Error: Paciente já alocado a uma vaga!"));
-				}
-			}
+//			for(Vaga v: vagas) {
+//				if(v.getPaciente().getCpf().equals(pacienteFound.getCpf())) {
+//					return ResponseEntity.badRequest().body(new MessageResponse("Error: Paciente já alocado a uma vaga!"));
+//				}
+//			}
 			vagaExist.setSituacao("ocupado");
 			vagaExist.setPaciente(pacienteFound);
 		}else{
