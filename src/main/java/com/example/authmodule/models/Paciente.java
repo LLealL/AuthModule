@@ -32,7 +32,7 @@ public class Paciente implements Serializable{
 	private String cpf;
 
 	@JsonFormat(pattern ="yyyy-MM-dd")
-	private LocalDate nascimento;
+	private LocalDate dataNascimento;
 	
 	public Paciente() {
 		super();
@@ -57,12 +57,12 @@ public class Paciente implements Serializable{
 		this.email = email;
 	}
 
-	public LocalDate getNascimento() {
-		return nascimento;
+	public LocalDate getDataNascimento() {
+		return dataNascimento;
 	}
 
-	public void setNascimento(LocalDate nascimento) {
-		this.nascimento = nascimento;
+	public void setDataNascimento(LocalDate dataNascimento) {
+		this.dataNascimento = dataNascimento;
 	}
 
 	public String getCpf() {

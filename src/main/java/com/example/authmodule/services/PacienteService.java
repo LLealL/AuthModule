@@ -66,6 +66,7 @@ public class PacienteService {
 		
 		pacienteExist.setEmail(paciente.getEmail());
 		pacienteExist.setNome(paciente.getNome());
+		pacienteExist.setDataNascimento(paciente.getDataNascimento());
 		
 
 		return ResponseEntity.ok(pacienteRepository.save(pacienteExist));
