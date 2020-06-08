@@ -1,8 +1,11 @@
 package com.example.authmodule.models;
 
+import java.time.LocalDate;
+
 import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 @Table(name="tb_vaga")
@@ -17,6 +20,9 @@ public class Vaga {
 
 	@OneToOne
 	private Paciente paciente;
+	
+	@JsonFormat(pattern ="yyyy-MM-dd")
+	private LocalDate dataAlocacao;
 
 	//@JsonBackReference
 	@ManyToOne
@@ -70,5 +76,13 @@ public class Vaga {
 	}
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
+	}
+
+	public LocalDate getDataAlocacao() {
+		return dataAlocacao;
+	}
+
+	public void setDataAlocacao(LocalDate dataAlocacao) {
+		this.dataAlocacao = dataAlocacao;
 	}
 }
