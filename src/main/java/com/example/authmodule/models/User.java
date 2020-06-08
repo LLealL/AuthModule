@@ -56,10 +56,11 @@ public class User {
     public User(){
     }
 
-    public User(String username, String email, String password){
+    public User(String username, String email, String password, String nome){
         this.username = username;
         this.email= email;
         this.password = password;
+        this.nomeHospital = nome;
     }
 
     public Long getId() {

@@ -15,6 +15,8 @@ public class SignupRequest {
     @Email
     private String email;
 
+    private String nomeHospital;
+
     private Set<String> role;
 
     @NotBlank
@@ -51,5 +53,13 @@ public class SignupRequest {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getNomeHospital() {
+        return nomeHospital;
+    }
+
+    public void setNomeHospital(String nomeHospital) {
+        this.nomeHospital = nomeHospital;
     }
 }
