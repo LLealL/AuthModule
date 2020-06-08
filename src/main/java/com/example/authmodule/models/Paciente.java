@@ -2,6 +2,7 @@ package com.example.authmodule.models;
 
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import javax.persistence.*;
@@ -9,6 +10,7 @@ import javax.validation.Constraint;
 import javax.validation.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 @Table(name="tb_paciente")
@@ -29,7 +31,8 @@ public class Paciente implements Serializable{
 	@Column(unique=true)
 	private String cpf;
 
-	private LocalDateTime nascimento;
+	@JsonFormat(pattern ="yyyy-MM-dd")
+	private LocalDate nascimento;
 	
 	public Paciente() {
 		super();
@@ -52,6 +55,14 @@ public class Paciente implements Serializable{
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public LocalDate getNascimento() {
+		return nascimento;
+	}
+
+	public void setNascimento(LocalDate nascimento) {
+		this.nascimento = nascimento;
 	}
 
 	public String getCpf() {
