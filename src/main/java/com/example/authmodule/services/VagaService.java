@@ -94,14 +94,15 @@ public class VagaService {
 		if(vaga.getPaciente()!=null){
 			Paciente pacienteFound = pacienteRepository.findPacienteByCpf(vaga.getPaciente().getCpf());
 
-            if(vagaRepository.existsVagaByPaciente(pacienteFound)){
-                return ResponseEntity.status(HttpStatus.METHOD_NOT_ALLOWED).build();
-            }
-
 
 			if (pacienteFound == null) {
 				return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body(new MessageResponse("Error: Paciente não encontrado!"));
 			}
+
+			if(vagaRepository.existsVagaByPaciente(pacienteFound)){
+				return ResponseEntity.status(HttpStatus.METHOD_NOT_ALLOWED).build();
+			}
+
 			List<Vaga> vagas = vagaRepository.findAll();
 			
 //			for(Vaga v: vagas) {
