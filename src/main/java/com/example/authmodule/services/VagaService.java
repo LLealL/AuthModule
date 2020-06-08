@@ -95,7 +95,7 @@ public class VagaService {
 			Paciente pacienteFound = pacienteRepository.findPacienteByCpf(vaga.getPaciente().getCpf());
 			
 			if (pacienteFound == null) {
-				return ResponseEntity.badRequest().body(new MessageResponse("Error: Paciente não encontrado!"));
+				return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body(new MessageResponse("Error: Paciente não encontrado!"));
 			}
 			List<Vaga> vagas = vagaRepository.findAll();
 			
