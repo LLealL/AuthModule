@@ -14,7 +14,6 @@ public class Historico {
     public int id;
 
     @ManyToOne
-    @JoinColumn("hospital_id")
     public User hospital;
 
     @JsonFormat(pattern ="yyyy-MM-dd")
