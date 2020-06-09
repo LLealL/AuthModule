@@ -1,10 +1,13 @@
 package com.example.authmodule.services;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import com.example.authmodule.models.Historico;
 import com.example.authmodule.models.Paciente;
+import com.example.authmodule.repository.HistoricoRepository;
 import com.example.authmodule.repository.PacienteRepository;
 import com.example.authmodule.security.payload.response.MessageResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +19,7 @@ import com.example.authmodule.models.User;
 import com.example.authmodule.models.Vaga;
 import com.example.authmodule.repository.UserRepository;
 import com.example.authmodule.repository.VagaRepository;
+import sun.jvm.hotspot.ui.HistoryComboBox;
 
 @Service
 public class VagaService {
@@ -26,6 +30,8 @@ public class VagaService {
 	UserRepository userRepository;
 	@Autowired
 	PacienteRepository pacienteRepository;
+	@Autowired
+	HistoricoRepository historicoRepository;
 	
 	public ResponseEntity<?> cadastrarVaga(Vaga vaga) {
 
@@ -112,6 +118,11 @@ public class VagaService {
 //			}
 			vagaExist.setSituacao("ocupado");
 			vagaExist.setPaciente(pacienteFound);
+			Historico history = new Historico();
+			history.setHospital(vagaExist.getUser());
+			history.setData(LocalDate.now());
+			historicoRepository.save(history);
+
 		}else{
 			vagaExist.setSituacao("livre");
 			vagaExist.setPaciente(null);
