@@ -4,6 +4,7 @@ import com.example.authmodule.models.Notification;
 import com.example.authmodule.models.Vaga;
 import com.example.authmodule.services.HistoricoService;
 import com.example.authmodule.services.NotificationService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,9 +12,8 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/notification")
 public class NotificationController {
-
-    HistoricoService historicoService;
-
+    
+    @Autowired
     NotificationService notificationService;
 
     @PostMapping("/notificar")
