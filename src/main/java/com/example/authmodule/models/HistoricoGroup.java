@@ -6,23 +6,23 @@ import java.time.LocalDate;
 
 public class HistoricoGroup {
 
-    private int count;
+    private Long count;
 
     @JsonFormat(pattern ="yyyy-MM-dd")
     private LocalDate data;
     private Long user;
 
-    public HistoricoGroup(int count, LocalDate data, Long user) {
+    public HistoricoGroup(Long count, LocalDate data, Long user) {
         this.count = count;
         this.data = data;
         this.user = user;
     }
 
-    public int getCount() {
+    public Long getCount() {
         return count;
     }
 
-    public void setCount(int count) {
+    public void setCount(Long count) {
         this.count = count;
     }
 

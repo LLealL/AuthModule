@@ -41,6 +41,7 @@ public class HistoricoService {
        Optional<User> userOp = userRepository.findById(id);
        User userFound = userOp.get();
 
+
        List<HistoricoGroup> usergroup = new LinkedList<HistoricoGroup>();
        if(userFound!=null) {
 
