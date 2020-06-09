@@ -19,7 +19,6 @@ import com.example.authmodule.models.User;
 import com.example.authmodule.models.Vaga;
 import com.example.authmodule.repository.UserRepository;
 import com.example.authmodule.repository.VagaRepository;
-import sun.jvm.hotspot.ui.HistoryComboBox;
 
 @Service
 public class VagaService {
