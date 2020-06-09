@@ -45,7 +45,15 @@ public class NotificationService {
         if(userFound==null){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
+
         List<Notification> lista = notificationRepository.findNotificationsByReceiver(userFound);
+
+        for(Notification n : lista){
+            n.getReceiver().setPassword("");
+            n.getReceiver().setVagas(null);
+            n.getSender().setPassword("");
+            n.getSender().setVagas(null);
+        }
 
         return ResponseEntity.ok(lista);
     }
