@@ -4,7 +4,6 @@ import com.example.authmodule.models.Notification;
 import com.example.authmodule.models.Vaga;
 import com.example.authmodule.services.HistoricoService;
 import com.example.authmodule.services.NotificationService;
-import org.graalvm.compiler.core.common.type.ArithmeticOpTable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
