@@ -50,6 +50,10 @@ public class UserController {
         if(userFound== null){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
+        userFound.setPassword("");
+        userFound.setVagas(null);
+        userFound.setRoles(null);
+        userFound.setUsername("");
 
         return ResponseEntity.ok(userFound);
     }
