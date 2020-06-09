@@ -47,7 +47,7 @@ public class HistoricoService {
            // List<Historico> lista = historicoRepository.findHistoricosByHospital(userFound);
            List<HistoricoGroup> group = historicoRepository.groupBy();
            for (HistoricoGroup histGroup : group) {
-               if (histGroup.getUser().getId() == userFound.getId()) {
+               if (histGroup.getUser() == userFound.getId()) {
                    usergroup.add(histGroup);
                }
            }
