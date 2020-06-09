@@ -67,6 +67,13 @@ public class NotificationService {
         }
         List<Notification> lista = notificationRepository.findNotificationsBySender(userFound);
 
+        for(Notification n : lista){
+            n.getReceiver().setPassword("");
+            n.getReceiver().setVagas(null);
+            n.getSender().setPassword("");
+            n.getSender().setVagas(null);
+        }
+
         return ResponseEntity.ok(lista);
     }
 
