@@ -42,7 +42,20 @@ public class UserController {
         return ResponseEntity.ok("");
     }
 
-    @GetMapping("/all")
+    @GetMapping("/user/{id}")
+    public ResponseEntity<?> getUser(@PathVariable("id") Long id){
+        Optional<User> userOp = userRepository.findById(id);
+        User userFound = userOp.get();
+
+        if(userFound== null){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+
+        return ResponseEntity.ok(userFound);
+    }
+
+
+    @GetMapping("/user/all")
     public ResponseEntity<?> listAll(){
         return ResponseEntity.ok(userRepository.listAll());
 
