@@ -1,10 +1,14 @@
 package com.example.authmodule.models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.time.LocalDate;
 
 public class HistoricoGroup {
 
     private int count;
+
+    @JsonFormat(pattern ="yyyy-MM-dd")
     private LocalDate data;
     private Long user;
 
