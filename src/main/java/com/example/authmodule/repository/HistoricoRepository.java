@@ -19,7 +19,7 @@ public interface HistoricoRepository extends JpaRepository<Historico, Integer> {
     @Query("select new com.example.authmodule.models.HistoricoGroup(" +
             "count(h.id)," +
             "(h.data)," +
-            "h.hospital) " +
+            "h.hospital.id) " +
             "from Historico h " +
             "group by h.data ")
     List<HistoricoGroup> groupBy();
