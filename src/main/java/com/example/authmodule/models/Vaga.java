@@ -20,9 +20,7 @@ public class Vaga {
 
 	@OneToOne
 	private Paciente paciente;
-	
-	@JsonFormat(pattern ="yyyy-MM-dd")
-	private LocalDate dataAlocacao;
+
 
 	//@JsonBackReference
 	@ManyToOne
@@ -78,11 +76,4 @@ public class Vaga {
 		this.descricao = descricao;
 	}
 
-	public LocalDate getDataAlocacao() {
-		return dataAlocacao;
-	}
-
-	public void setDataAlocacao(LocalDate dataAlocacao) {
-		this.dataAlocacao = dataAlocacao;
-	}
 }
