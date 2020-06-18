@@ -28,6 +28,8 @@ public class Vaga {
 	private User user;
 	
 	private String descricao;
+	
+	private String laudo;
 
 	public Vaga() {
 		super();
@@ -74,6 +76,14 @@ public class Vaga {
 	}
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
+	}
+
+	public String getLaudo() {
+		return laudo;
+	}
+
+	public void setLaudo(String laudo) {
+		this.laudo = laudo;
 	}
 
 }

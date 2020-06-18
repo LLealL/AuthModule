@@ -89,6 +89,8 @@ public class VagaService {
 	}
 
 	public ResponseEntity<?> editarVaga(Vaga vaga) {
+		
+		String laudo;
 
 		Vaga vagaExist = vagaRepository.findById(vaga.getId()).orElse(null);
 
@@ -124,6 +126,7 @@ public class VagaService {
 
 		}else{
 			vagaExist.setSituacao("livre");
+			laudo = vagaExist.getLaudo();
 			vagaExist.setPaciente(null);
 		}
 
